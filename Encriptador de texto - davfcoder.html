@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+        <title>Encriptador de texto - @davfcoder</title>
+    </head>
+    
+    <body>
+        <header>
+            <div class="logo">
+                <h1><img src="logo.png" alt="Logo de Alura Latam"></h1>
+            </div>
+        </header>
+
+        <main>
+            <div class="ingresar">
+                <label for="ingresado">Ingresa el texto aquí</label>
+                <textarea id="ingresado" class="texto-ingresado" cols="150" rows="5" required></textarea>
+            </div>
+
+            <ul class="cajita">
+                <div class="no_encontrado">
+                    <li class="imagen_lista">
+                        <img src="buscando.png" width="250px" alt="Imagen representativa sobre no haber encontrado alguna palabra encriptada">
+                    </li>
+                    <li class="aviso1">
+                        <p>Ningún mensaje fue encontrado.</p>
+                    </li>
+                    <li class="aviso2">
+                        <p>Ingresa el texto que desees encriptar o desencriptar.</p>    
+                    </li>
+                </div>
+                <div class="copiar">
+                    <li>
+                        <!-- onclick="copiarTexto()" -->
+                        <button id="boton_copiar" > Copiar</button>
+                    </li>
+                </div>
+                
+            <div class="enviar">
+                <p class="condicion">Solo letras minúsculas y sin acentos</p> 
+                <input type="submit" name="encriptar" value="Encriptar" class="encriptado">
+                <input type="submit" name="desencriptar" value="Desencriptar" class="desencriptado">
+            </div>
+        </main>
+
+        <footer>  
+        </footer>
+    </body>
+</html>

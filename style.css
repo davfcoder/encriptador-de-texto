@@ -1,0 +1,81 @@
+body{
+    background-color: #E5E5E5;
+    font-family: 'Oswald', sans-serif;
+}
+
+main{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.logo{
+    padding: 40px 60px;
+    position: relative;
+}
+
+.ingresar{
+    position: absolute;
+    top: 150px;
+    color: #0A3871;
+    font-size: 22px;
+}
+
+.texto-ingresado{
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 8px; /* Bordes redondeados */
+    display: block;
+    margin-top: 20px;
+    padding: 15px 25px;
+    width: 50%;
+    font-size: 14px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.cajita{
+    display: block;
+    position: absolute;
+    width: 300px;
+    height: 83%;
+    left: 70%;
+    top: 50px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.imagen_lista{
+    padding: 75px 0px 10px 25px;
+}
+.cajita li p{
+    padding: 8px;
+    width: auto;
+}
+
+.aviso1{
+    color: #343A40;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+.aviso2{
+    color: #495057;
+    font-size: 12px;
+    text-align: center;
+}
+
+#boton_copiar{
+    width: 260px;
+    height: 40px;
+    font-size: 12px;
+    position: relative;
+    top: 90px;
+    transform: translateX(20px);
+    border: 1px solid #0A3871;
+    border-radius: 15px;
+    color: #0A3871;
+}
+
+.condicion::before{
+    content: url("Vectoradvertencia.png");
+    margin-right: 8px;
+}
