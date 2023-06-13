@@ -33,14 +33,14 @@
             </div>
 
             <div class="enviar"> 
-                <input type="submit" name="encriptar" value="Encriptar" class="encriptado">
-                <input type="submit" name="desencriptar" value="Desencriptar" class="desencriptado">
+                <button class="boton_encriptar" onclick="encriptar()">Encriptar</button>
+                <button class="boton_desencriptar" onclick="desencriptar()">Encriptar</button>
             </div>
 
-            <ul class="cajita">
-                <div class="no_encontrado">
+            <ul class="cajita" id="cajita_id">
+                <div id="no_encontrado_id">
                     <li class="imagen_lista">
-                        <img src="buscando.png" width="250px" alt="Imagen representativa sobre no haber encontrado alguna palabra encriptada">
+                        <img src="buscando.png" width="210px" alt="Imagen representativa sobre no haber encontrado alguna palabra encriptada">
                     </li>
                     <li class="aviso1">
                         <p>Ningún mensaje fue encontrado.</p>
@@ -49,12 +49,12 @@
                         <p>Ingresa el texto que desees encriptar o desencriptar.</p>    
                     </li>
                 </div>
-                <div class="copiar">
-                    <li>
-                        <!-- onclick="copiarTexto()" -->
-                        <button id="boton_copiar" > Copiar</button>
-                    </li>
-                </div>
+            </ul>
+
+            <div class="copiar" id="copiar_id">
+                <button id="boton_copiar" > Copiar</button>
+            </div>
+
         </main>
 
         <footer>  
