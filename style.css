@@ -52,12 +52,12 @@ main{
     margin: 5px 0;
 }
 
-.encriptado:hover{
+.boton_encriptar:hover{
     background: #05254c;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-.encriptado{
+.boton_encriptar{
     background-color: #0A3871;
     border: 1px solid #D8DFE8;
     color: #D8DFE8;
@@ -65,17 +65,19 @@ main{
     width: 220px;
     height: 50px;
     margin-right: 20px;
+    transition: background-color 0.3s ease;
 }
 
-.desencriptado{
+.boton_desencriptar{
     background-color: #D8DFE8;
     border: 1px solid #0A3871;
     color: #0A3871;
     border-radius: 15px;
     width: 220px;
     height: 50px;
+    transition: background-color 0.3s ease;
 }
-.desencriptado:hover{
+.boton_desencriptar:hover{
     background: #afb9c7;
     color: #13498b;
     cursor: pointer;
@@ -83,11 +85,10 @@ main{
 }
 
 .cajita{
-    display: block;
     position: absolute;
-    width: 300px;
-    height: 83%;
-    left: 70%;
+    width: 250px;
+    height: 75%;
+    left: 73%;
     top: 50px;
     background-color: #FFFFFF;
     border-radius: 10px;
@@ -100,6 +101,13 @@ main{
 .cajita li p{
     padding: 8px;
     width: auto;
+}
+
+#cajita_id{
+    padding: 30px;
+    color: #495057;
+    font-size: 18px;
+    text-align: left;
 }
 
 .aviso1{
@@ -115,15 +123,17 @@ main{
 }
 
 #boton_copiar{
-    width: 260px;
+    display: none;
+    width: 240px;
     height: 40px;
     font-size: 12px;
-    position: relative;
-    top: 90px;
-    transform: translateX(20px);
+    position: absolute;
+    top: 510px;
+    right: 93px;
     border: 1px solid #0A3871;
     border-radius: 15px;
     color: #0A3871;
+    transition: background-color 0.3s ease;
 }
 
 #boton_copiar:hover{
