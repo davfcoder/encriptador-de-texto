@@ -1,24 +1,32 @@
 var esconder = true;
+var div_cajita;
+var textarea;
+var texto_encriptado ="";
+var texto_desencriptado ="";
+
+var caracteres_permitidos = /[a-z\s]+/;
+var aux_mensaje;
+
 document.addEventListener("DOMContentLoaded", function() {
-    var textarea = document.getElementById("ingresado");
+    textarea = document.getElementById("ingresado");
     textarea.focus();
 });
 
-function esconder_mostrar(){
-    document.getElementById("no_encontrado_id").style.display = "none";
-    document.getElementById("boton_copiar").style.display = "block";
-    
+function enfocar(){
+    textarea = document.getElementById("ingresado");
+    textarea.focus();
 }
 
-function encriptar(){
-    var texto_encriptado="";
-    var texto = document.getElementById("ingresado").value;
-
+function mostrar(){
     if(esconder){
-        esconder_mostrar();
         esconder = false;
+        document.getElementById("boton_copiar").style.display = "block";
     }
+}
 
+function encriptar(texto,div_cajita){
+    mostrar();
+    texto_encriptado="";
     for(var i = 0; i < texto.length; i++){
         switch(texto[i]){
             case "a":
@@ -41,10 +49,85 @@ function encriptar(){
                 break;
         }
     }
+    div_cajita.textContent = texto_encriptado;
 
-    var div_encriptado = document.getElementById("cajita_id");
-    div_encriptado.textContent = texto_encriptado;
-
-    var textarea = document.getElementById("ingresado");
-    textarea.focus();
 }
+
+function boton_encriptar(){
+    texto = document.getElementById("ingresado").value;
+    div_cajita = document.getElementById("cajita_id");
+    aux_mensaje = true;
+    
+    if (texto != ""){
+        for (var x = 0; x < texto.length; x++){
+            if (caracteres_permitidos.test(texto[x]) == false){
+               aux_mensaje = false; 
+               break;
+            }
+        }
+        if(aux_mensaje){
+            encriptar(texto,div_cajita);
+        }else{
+            alert("Por favor, ingresa únicamente palabras con letras minúsculas y sin acentos");
+        }
+
+    }else if(texto_encriptado != div_cajita.textContent && (texto_encriptado != "" || texto_desencriptado != "")){
+        texto = div_cajita.textContent;
+        encriptar(texto,div_cajita);
+
+    }
+    enfocar();
+}
+
+function boton_desencriptar(){
+    texto = document.getElementById("ingresado").value;
+    div_cajita = document.getElementById("cajita_id");
+    texto_desencriptado = "";
+
+    // var aux_desencriptar = "";
+    
+    // var cont = 0;
+    // var keys = ["ai","enter","imes", "ober", "ufat"];
+    if (texto != ""){
+        for (var x = 0; x < texto.length; x++){
+            if (caracteres_permitidos.test(texto[x]) == false){
+               aux_mensaje = false; 
+               break;
+            }
+        }
+        if(aux_mensaje){  
+            mostrar();
+            // for(var i =0; i < texto_encriptado.length; i++){
+            
+            //     for(var j = cont; j < keys[0].length + cont; j++){
+            //         aux_desencriptar = texto_encriptado[j] + aux_desencriptar; 
+            //     }
+            //     if(aux_desencriptar == keys[0]){
+            //         texto_desencriptado = texto_encriptado[i] + aux_desencriptar
+            //     }
+            //     cont ++;
+            // }
+            div_cajita.textContent = texto;
+            texto_desencriptado = texto;
+        }else{
+            alert("Por favor, ingresa únicamente palabras con letras minúsculas y sin acentos");
+        }
+
+    }else if(texto_desencriptado != div_cajita.textContent && (texto_encriptado != "" || texto_desencriptado != "")){
+    mostrar();
+    texto_desencriptado = "carro";
+        // for(var i =0; i < texto_encriptado.length; i++){
+        
+        //     for(var j = cont; j < keys[0].length + cont; j++){
+        //         aux_desencriptar = texto_encriptado[j] + aux_desencriptar; 
+        //     }
+        //     if(aux_desencriptar == keys[0]){
+        //         texto_desencriptado = texto_encriptado[i] + aux_desencriptar
+        //     }
+        //     cont ++;
+        // } 
+        div_cajita = document.getElementById("cajita_id");
+        div_cajita.textContent = texto_desencriptado;
+    }
+    enfocar()
+    }
