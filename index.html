@@ -24,17 +24,17 @@
         <main>
             <div class="ingresar">
                 <label for="ingresado">Ingresa el texto aquí</label>
-                <textarea id="ingresado" class="texto-ingresado" cols="150" rows="5" required></textarea>
+                <textarea id="ingresado" class="texto-ingresado" cols="130" rows="5" placeholder="Ingresa solo letras (sin acentos) y en minúsculas"></textarea>
             </div>
 
             <div class="condiciones">
-                <img class="icono_condicion" src="Vectoradvertencia.png" width="9px" alt="Icono de advertencia o condición.">
+                <img class="icono_condicion" src="Vectoradvertencia.png" width="12px" alt="Icono de advertencia o condición.">
                 <p class="texto_condicion">Solo letras minúsculas y sin acentos</p>
             </div>
 
             <div class="enviar"> 
-                <button class="boton_encriptar" onclick="encriptar()">Encriptar</button>
-                <button class="boton_desencriptar" onclick="desencriptar()">Encriptar</button>
+                <button class="boton_encriptar" onclick="boton_encriptar()">Encriptar</button>
+                <button class="boton_desencriptar" onclick="boton_desencriptar()">Desencriptar</button>
             </div>
 
             <ul class="cajita" id="cajita_id">
