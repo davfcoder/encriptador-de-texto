@@ -6,6 +6,7 @@ var texto_desencriptado ="";
 var opcion = "";
 var caracteres_permitidos = /[a-z\s]+/;
 var aux_mensaje;
+var texto_aux;
 
 document.addEventListener("DOMContentLoaded", function() {
     textarea = document.getElementById("ingresado");
@@ -83,30 +84,33 @@ function desencriptar(texto,div_cajita){
     mostrar();
     texto_desencriptado = "";
     for(var i = 0; i < texto.length; i++){
-        switch(texto[i]){
-            case "a":
+        texto_aux = "";
+        for(var j = 0; j < 5; j++){
+            texto_aux = texto_aux + texto[i+j];
+            if(texto_aux == "ai"){
                 texto_desencriptado = texto_desencriptado + "a";
                 i = i + 1;
                 break;
-            case "e":
+            }else if(texto_aux == "enter"){
                 texto_desencriptado = texto_desencriptado + "e";
                 i = i + 4;
                 break;
-            case "i":
+            }else if(texto_aux == "imes"){
                 texto_desencriptado = texto_desencriptado + "i";
                 i = i + 3;
                 break;
-            case "o":
+            }else if(texto_aux == "ober"){
                 texto_desencriptado = texto_desencriptado + "o";
                 i = i + 3;
                 break;
-            case "u":
+            }else if(texto_aux == "ufat"){
                 texto_desencriptado = texto_desencriptado + "u";
                 i = i + 3;
                 break;
-            default:
+            }else if(j == 4){
                 texto_desencriptado = texto_desencriptado + texto[i];
                 break;
+            }
         }
     }
     div_cajita.textContent = texto_desencriptado;
@@ -143,6 +147,7 @@ function boton_desencriptar(){
 function boton_copiar(){
     navigator.clipboard.writeText(div_cajita.textContent).then(() => {
         alert("El texto " + opcion + " fue copiado con éxito")
+        enfocar();
     }, () => {
         /* clipboard write failed */
       });
