@@ -1,9 +1,9 @@
-var esconder = true;
+var mostrar_boton = true;
 var div_cajita;
 var textarea;
 var texto_encriptado ="";
 var texto_desencriptado ="";
-
+var opcion = "";
 var caracteres_permitidos = /[a-z\s]+/;
 var aux_mensaje;
 
@@ -18,8 +18,8 @@ function enfocar(){
 }
 
 function mostrar(){
-    if(esconder){
-        esconder = false;
+    if(mostrar_boton){
+        mostrar_boton = false;
         document.getElementById("boton_copiar").style.display = "block";
     }
 }
@@ -50,7 +50,7 @@ function encriptar(texto,div_cajita){
         }
     }
     div_cajita.textContent = texto_encriptado;
-
+    opcion = "encriptado"
 }
 
 function boton_encriptar(){
@@ -79,15 +79,45 @@ function boton_encriptar(){
     enfocar();
 }
 
+function desencriptar(texto,div_cajita){
+    mostrar();
+    texto_desencriptado = "";
+    for(var i = 0; i < texto.length; i++){
+        switch(texto[i]){
+            case "a":
+                texto_desencriptado = texto_desencriptado + "a";
+                i = i + 1;
+                break;
+            case "e":
+                texto_desencriptado = texto_desencriptado + "e";
+                i = i + 4;
+                break;
+            case "i":
+                texto_desencriptado = texto_desencriptado + "i";
+                i = i + 3;
+                break;
+            case "o":
+                texto_desencriptado = texto_desencriptado + "o";
+                i = i + 3;
+                break;
+            case "u":
+                texto_desencriptado = texto_desencriptado + "u";
+                i = i + 3;
+                break;
+            default:
+                texto_desencriptado = texto_desencriptado + texto[i];
+                break;
+        }
+    }
+    div_cajita.textContent = texto_desencriptado;
+    opcion = "desencriptado";
+}
+
 function boton_desencriptar(){
     texto = document.getElementById("ingresado").value;
     div_cajita = document.getElementById("cajita_id");
-    texto_desencriptado = "";
+    aux_mensaje = true;
 
-    // var aux_desencriptar = "";
-    
-    // var cont = 0;
-    // var keys = ["ai","enter","imes", "ober", "ufat"];
     if (texto != ""){
         for (var x = 0; x < texto.length; x++){
             if (caracteres_permitidos.test(texto[x]) == false){
@@ -95,39 +125,25 @@ function boton_desencriptar(){
                break;
             }
         }
-        if(aux_mensaje){  
-            mostrar();
-            // for(var i =0; i < texto_encriptado.length; i++){
-            
-            //     for(var j = cont; j < keys[0].length + cont; j++){
-            //         aux_desencriptar = texto_encriptado[j] + aux_desencriptar; 
-            //     }
-            //     if(aux_desencriptar == keys[0]){
-            //         texto_desencriptado = texto_encriptado[i] + aux_desencriptar
-            //     }
-            //     cont ++;
-            // }
-            div_cajita.textContent = texto;
-            texto_desencriptado = texto;
+        if(aux_mensaje){
+            desencriptar(texto,div_cajita);
         }else{
             alert("Por favor, ingresa únicamente palabras con letras minúsculas y sin acentos");
         }
 
     }else if(texto_desencriptado != div_cajita.textContent && (texto_encriptado != "" || texto_desencriptado != "")){
-    mostrar();
-    texto_desencriptado = "carro";
-        // for(var i =0; i < texto_encriptado.length; i++){
-        
-        //     for(var j = cont; j < keys[0].length + cont; j++){
-        //         aux_desencriptar = texto_encriptado[j] + aux_desencriptar; 
-        //     }
-        //     if(aux_desencriptar == keys[0]){
-        //         texto_desencriptado = texto_encriptado[i] + aux_desencriptar
-        //     }
-        //     cont ++;
-        // } 
-        div_cajita = document.getElementById("cajita_id");
-        div_cajita.textContent = texto_desencriptado;
+        texto = div_cajita.textContent;
+        desencriptar(texto,div_cajita);
     }
-    enfocar()
-    }
+
+    enfocar();
+
+}
+
+function boton_copiar(){
+    navigator.clipboard.writeText(div_cajita.textContent).then(() => {
+        alert("El texto " + opcion + " fue copiado con éxito")
+    }, () => {
+        /* clipboard write failed */
+      });
+}
