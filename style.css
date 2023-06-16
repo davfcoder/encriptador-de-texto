@@ -82,48 +82,59 @@ main{
 }
 
 .cajita{
-    display: block;
     position: absolute;
-    width: 20%;
+    padding: 20px;
+    display: grid;
+    width: 247px;
     height: 500px;
-    left: 73%;
+    right: 2%;
     top: 5%;
     background-color: #FFFFFF;
     border-radius: 10px;
     overflow: auto;
     box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+    align-content: center;
+    justify-items: center;
 }
 
 .imagen_lista{
-    padding: 50px 0px 20px 18px;
+    padding-bottom: 10px;
+    margin-top: -40px;
 }
 .cajita li p{
     padding: 8px;
 }
 
-#cajita_id{
-    padding: 30px;
+.li_texto{
+    width: inherit;
+}
+
+#texto_agregado{
     color: #495057;
     font-size: 22px;
     text-align: left;
     overflow-wrap: break-word;
+    word-break: break-all;
+    height: fit-content;
 }
 
+
 .aviso1{
+    display: block;
     color: #343A40;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
 }
 .aviso2{
+    display: block;
     color: #495057;
     font-size: 12px;
     text-align: center;
 }
-.container2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.copiar{
+    display: none;
 }
 
 #boton_copiar{
@@ -144,29 +155,28 @@ main{
 }
 
 footer{
-    position: fixed;
-    bottom: 5px;
-    display:flex;
+    position: relative;
     width: 100%;
     font-family: 'Oswald', sans-serif;
-    font-size: 8px;
-    margin-top: 405px;
+    font-size: 10px;
+    margin-top: 195px;
     width: 70%;
     left: 10px;
 }
 
 @media screen and (max-width: 1000px)  {
-    
-    .ingresar{
-        width: 100%;
+    main{
+        width: 70%;
+        height: auto;
+        margin: 0 auto;
     }
-
     .texto-ingresado{
         width: -webkit-fill-available;
     }
-
     .botonesYcondicion{
-        margin-top: 10px;
+        position: initial;
+        margin-bottom: 20px;
+        margin-top: 25px;
     }
 
     .enviar{
@@ -176,27 +186,25 @@ footer{
     }
 
     .boton_desencriptar, .boton_encriptar{
-        width: 47%;
+        width: 48.5%;
+        margin: 0;
     }
 
     .cajita{
-        top: 20px;
-        left: auto;
         width: -webkit-fill-available;
         height: auto;
+        position: initial;
+        align-content: center;
+        justify-items: center;
     }
 
     .imagen_lista{
         display: none;
     }
 
-    .container2{
-        display: block;
-        position: relative;
-        top: 200px;
-    }
     footer{
         position: relative;
+        margin-bottom: 10px;
     }
     
 }
