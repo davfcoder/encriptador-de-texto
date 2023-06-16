@@ -198,8 +198,9 @@ footer{
         justify-items: center;
     }
 
-    .imagen_lista{
-        display: none;
+    .imagen_lista img{
+        width: 150px;
+        margin-top: 25px;
     }
 
     footer{
