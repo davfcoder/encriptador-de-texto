@@ -1,4 +1,4 @@
-var mostrar_boton = true;
+var mostrar_ocultar_aux = true;
 var div_cajita;
 var textarea;
 var texto_encriptado ="";
@@ -18,15 +18,20 @@ function enfocar(){
     textarea.focus();
 }
 
-function mostrar(){
-    if(mostrar_boton){
-        mostrar_boton = false;
-        document.getElementById("boton_copiar").style.display = "block";
+function mostrar_ocultar(){
+    if(mostrar_ocultar_aux){
+        mostrar_ocultar_aux = false;
+        document.getElementById("copiar_id").style.display = "block";
+        document.getElementById("imagen_lista_id").style.display = "none";
+        document.getElementById("aviso1_id").style.display = "none";
+        document.getElementById("aviso2_id").style.display = "none";
+        var cajita = document.getElementById("cajita_id");
+        cajita.style.gridTemplateRows = "1fr";
     }
 }
 
 function encriptar(texto,div_cajita){
-    mostrar();
+    mostrar_ocultar();
     texto_encriptado="";
     for(var i = 0; i < texto.length; i++){
         switch(texto[i]){
@@ -52,11 +57,12 @@ function encriptar(texto,div_cajita){
     }
     div_cajita.textContent = texto_encriptado;
     opcion = "encriptado"
+    mostrar_ocultar();
 }
 
 function boton_encriptar(){
     texto = document.getElementById("ingresado").value;
-    div_cajita = document.getElementById("cajita_id");
+    div_cajita = document.getElementById("texto_agregado");
     aux_mensaje = true;
     
     if (texto != ""){
@@ -81,7 +87,7 @@ function boton_encriptar(){
 }
 
 function desencriptar(texto,div_cajita){
-    mostrar();
+    mostrar_ocultar();
     texto_desencriptado = "";
     for(var i = 0; i < texto.length; i++){
         texto_aux = "";
@@ -119,7 +125,7 @@ function desencriptar(texto,div_cajita){
 
 function boton_desencriptar(){
     texto = document.getElementById("ingresado").value;
-    div_cajita = document.getElementById("cajita_id");
+    div_cajita = document.getElementById("texto_agregado");
     aux_mensaje = true;
 
     if (texto != ""){

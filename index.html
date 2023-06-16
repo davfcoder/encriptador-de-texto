@@ -7,7 +7,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
-        <script src="script.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
@@ -22,42 +21,43 @@
         </header>
 
         <main>
-                <div class="ingresar">
-                    <label for="ingresado">Ingresa el texto aquí</label>
-                    <textarea id="ingresado" class="texto-ingresado" cols="130" rows="5" placeholder="Ingresa solo letras (sin acentos) y en minúsculas"></textarea>
-                    
-                </div>
-                <div class="botonesYcondicion">
-                    <img class="icono_condicion" src="Vectoradvertencia.png" width="12px" alt="Icono de advertencia o condición.">
-                    <p class="texto_condicion">Solo letras minúsculas y sin acentos</p>
-                    <div class="enviar"> 
-                        <button class="boton_encriptar" onclick="boton_encriptar()">Encriptar</button>
-                        <button class="boton_desencriptar" onclick="boton_desencriptar()">Desencriptar</button>
-                    </div>
-                </div>
+            <div class="ingresar">
+                <label for="ingresado">Ingresa el texto aquí</label>
+                <textarea id="ingresado" class="texto-ingresado" cols="130" rows="5" placeholder="Ingresa solo letras (sin acentos) y en minúsculas"></textarea>        
+            </div>
 
-            <section class="container2">
-                <ul class="cajita" id="cajita_id">
-                    <div id="no_encontrado_id">
-                        <li class="imagen_lista">
-                            <img src="buscando.png" width="210px" alt="Imagen representativa sobre no haber encontrado alguna palabra encriptada">
-                        </li>
-                        <li class="aviso1">
-                            <p>Ningún mensaje fue encontrado.</p>
-                        </li>
-                        <li class="aviso2">
-                            <p>Ingresa el texto que desees encriptar o desencriptar.</p>    
-                        </li>
-                    </div>
-                </ul>
-                <div class="copiar" id="copiar_id">
-                    <button id="boton_copiar" onclick="boton_copiar()"> Copiar</button>
+            <div class="botonesYcondicion">
+                <img class="icono_condicion" src="Vectoradvertencia.png" width="12px" alt="Icono de advertencia o condición.">
+                <p class="texto_condicion">Solo letras minúsculas y sin acentos</p>
+                <div class="enviar"> 
+                <button class="boton_encriptar" onclick="boton_encriptar()">Encriptar</button>
+                <button class="boton_desencriptar" onclick="boton_desencriptar()">Desencriptar</button>
                 </div>
-            </section>
+            </div>
+
+            <ul class="cajita" id="cajita_id">
+                <li class="li_texto">
+                    <p id="texto_agregado"></p>
+                </li>
+                <li class="imagen_lista" id="imagen_lista_id">
+                    <img src="buscando.png" width="210px" alt="Imagen representativa sobre no haber encontrado alguna palabra encriptada">
+                </li>
+                <li class="aviso1" id="aviso1_id">
+                    <p>Ningún mensaje fue encontrado.</p>
+                </li>
+                <li class="aviso2" id="aviso2_id">
+                    <p>Ingresa el texto que desees encriptar o desencriptar.</p>    
+                </li>
+                <li class="copiar" id="copiar_id">
+                    <button id="boton_copiar" onclick="boton_copiar()"> Copiar</button>
+                </li>
+            </ul>
+
         </main>
 
         <footer>
             Creado por @davfcoder &copy 2023 | Encriptador de texto - Alura Challenges ONE 
         </footer>
+        <script src="script.js"></script>
     </body>
 </html>
